@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    display: flex;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.title {
+    font-size: var(--title-size-lg);
+}
+.title h3 {
+    margin: 0!important;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+    }
+    .title {
+        font-size: var(--title);
+        margin-bottom: 0.5rem;
+    }
+}

@@ -1,0 +1,32 @@
+.headerContainer {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerLeft {
+    display: flex;
+    align-items: center;
+}
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+.containerUserSettings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.username {
+    color: var(--white-color);
+    font-weight: 600;
+}
+.spaceUserSettings {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .headerContainer {
+        padding: 0 1rem!important;
+    }
+}
