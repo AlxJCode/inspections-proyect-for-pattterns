@@ -1,0 +1,10 @@
+.title {
+    padding: 1rem 0 1.5rem 0;
+    font-weight: 600;
+    font-size: var(--title);
+}
+.subtitle {
+    font-weight: 600;
+    padding: 0rem 0 1rem 0;
+    font-size: var(--text-size-md);
+}

@@ -1,6 +1,7 @@
-import { Card, Space } from 'antd';
+import { Card, Skeleton, Space } from 'antd';
 import React, { useEffect } from 'react'
 import { useAxiosInspection } from '../../../../hooks/inspections/useAxiosInspection';
+import { RenderStatusIO } from '../../../general/render/RenderStatusIO';
 import { InspectionItem } from '../InspectionItem';
 
 export const InspectionCard = () => {
@@ -25,6 +26,16 @@ export const InspectionCard = () => {
                             inspections.map( i => (
                                 <InspectionItem inspection = { i } key = { i.id }/>
                             ))
+                        }
+                        {
+                            loading && <Skeleton active />
+                        }
+                        {
+                            inspections.length == 0 && (
+                                <RenderStatusIO 
+                                    msg = 'No hay inspecciones con riesgos ALTOS'
+                                />
+                            )
                         }
                     </Space>
                 </div>

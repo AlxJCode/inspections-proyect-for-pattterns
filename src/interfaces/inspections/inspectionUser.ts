@@ -5,6 +5,7 @@ export interface IInspectionUser {
     id              ?: number;
     userId          : number;
     userModel       ?:IUserDetail;
+    fullName        : string;
     inspectionId    : number;
     inspectionModel ?: IInspection;
     type            : string;
@@ -18,6 +19,7 @@ export interface IInspectionUser {
 export interface IInspectionUserDB {
     id              ?: number;
     user_id         : number;
+    user_fullname   : string;
     user_model      ?:IUserDB;
     inspection_id   : number;
     inspection_model?: IInspectionDB;

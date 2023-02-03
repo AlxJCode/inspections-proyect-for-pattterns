@@ -1,0 +1,25 @@
+.nameColumnContainer {
+    display: flex;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    min-width: 40px;
+}
+.userPhoto {
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.txtContainer {
+    display: flex;
+    flex-direction: column;
+}
+.name {
+    font-weight: 600;
+}
+.doc {
+    color: var(--gray-color);
+}

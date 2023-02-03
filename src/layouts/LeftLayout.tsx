@@ -37,16 +37,18 @@ const getItem = (
 const itemsAdmin:ItemType[] = [
 	getItem("Inicio", "1", <HomeOutlined />),
 	getItem("Inspecciones", "2", <CalendarOutlined />),
+    getItem("Observaciones", "3", <CalendarOutlined />),
     getItem("Gestión", "sub1", <GlobalOutlined />, [
-        getItem('Usuarios', '3'),
-        getItem('Áreas', '4'),
-        getItem('Empresas', '5'),
+        getItem('Usuarios', '4'),
+        getItem('Áreas', '5'),
+        getItem('Empresas', '6'),
       ]),
 ];
 
 const itemsWorker = [
 	getItem("Inicio", "1", <HomeOutlined />),
 	getItem("Inspecciones", "2", <CalendarOutlined />),
+    getItem("Observaciones", "3", <CalendarOutlined />),
 ];
 
 const appName = "Inspecciones";
@@ -87,15 +89,18 @@ export const LeftLayout = ({ submenu = "", selectedKey = 1, children, title }: P
                 router.push('/inspections/');
                 break;
             case "3":
-                router.push('/users/');
+                router.push('/observations/');
                 break;
             case "4":
-                router.push('/users/areas');
+                router.push('/users/');
                 break;
             case "5":
-                router.push('/users/companies');
+                router.push('/users/areas');
                 break;
             case "6":
+                router.push('/users/companies');
+                break;
+            case "7":
                 router.push('/');
                 break;
         

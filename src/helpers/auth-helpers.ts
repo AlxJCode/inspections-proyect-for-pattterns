@@ -6,7 +6,7 @@ const TOKEN_KEY = 'RRHH';
 const UrlLocal  = "http://127.0.0.1:8000/api";
 const UrlProd   = "https://inspecciones.ighgroup.com/api";
 
-const Url = UrlProd;
+const Url = UrlLocal;
 
 export const setToken = ( token:string ) => {
     localStorage.setItem(TOKEN_KEY, token);

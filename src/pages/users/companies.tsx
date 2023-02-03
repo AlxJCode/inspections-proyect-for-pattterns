@@ -5,7 +5,7 @@ import { CompanyView } from '../../views/users/CompanyView'
 const Companies = () => {
     return (
         <div>
-            <LeftLayout title = 'Empresas' selectedKey = { 5 } submenu = { "sub1" }>
+            <LeftLayout title = 'Empresas' selectedKey = { 6 } submenu = { "sub1" }>
                 <CompanyView />
             </LeftLayout>
         </div>

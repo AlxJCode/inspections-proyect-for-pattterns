@@ -42,5 +42,7 @@ export const config = {
         "/users/companies/",
         "/inspections",
         "/inspections/:id*",
+        "/observations",
+        "/observations/:id*",
     ],
 };

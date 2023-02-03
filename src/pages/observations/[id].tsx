@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { LeftLayout } from '../../layouts/LeftLayout';
-import { InspectionDetailView } from '../../views/inspections/InspectionDetailView';
+import { ObservationDetailView } from '../../views/observations/ObservationDetailView';
+//import { ObservationDetailView } from '../../views/observations/ObservationDetailView';
 
-const InspectionDetail = () => {
+const ObservationDetail = () => {
 
     const router = useRouter();
     const [ id, setId ] = useState<number | undefined>( undefined );
@@ -16,12 +17,12 @@ const InspectionDetail = () => {
 
     return (
         <div>
-            <LeftLayout title = 'Inspección' selectedKey = { 2 }>
-                <InspectionDetailView id = { id } />
+            <LeftLayout title = 'Observación' selectedKey = { 3 }>
+                <ObservationDetailView id = { id } />
             </LeftLayout>
         </div>
     )
 };
 
-export default InspectionDetail;
+export default ObservationDetail;
 

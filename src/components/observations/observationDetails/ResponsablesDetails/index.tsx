@@ -1,6 +1,6 @@
 import { Button, Form, FormListFieldData, Input, Space } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { IInspectionUser } from '../../../../interfaces/inspections/inspectionUser';
+import { IObservationUser } from '../../../../interfaces/observations/observationUser';
 import { ImageModal } from '../../../general/ImageModal';
 import styles from '../styles.module.css';
 
@@ -14,40 +14,40 @@ interface Props {
     responsableName     : string;
     responsablePosition ?: string;
     responsableSignature?: string;
-    inspectionUsers     : IInspectionUser[];
+    observationUsers     : IObservationUser[];
 }
 
-export const ResponsablesDetails = ({ responsableName, responsablePosition, responsableSignature, inspectionUsers }: Props) => {
+export const ResponsablesDetails = ({ responsableName, responsablePosition, responsableSignature, observationUsers }: Props) => {
 
     const [ form1 ] = Form.useForm();
     const [ form2 ] = Form.useForm();
     const [ form3 ] = Form.useForm();
 
-    const  [ inspectedUsers, setinspectedUsers ] = useState<any>();
-    const  [ inspectorUsers, setInspectorUsers ] = useState<any>();
+    const  [ observatedUsers, setObservatedUsers ] = useState<any>();
+    const  [ ObservatorUsers, setObservatorUsers ] = useState<any>();
 
-    const startValues = ( inspectionUsers : IInspectionUser[] ) => {
-        const inspectedUsers = inspectionUsers.map( i => {
+    const startValues = ( observationUsers : IObservationUser[] ) => {
+        const observatedUsers = observationUsers.map( i => {
             if ( i.type == "1" ) return {
                 name: `${ i.fullName }`,
                 position: i.occupation,
                 dni: i.dni
             }
         });
-        const inspectordUsers = inspectionUsers.map( i => {
+        const ObservatordUsers = observationUsers.map( i => {
             if ( i.type == "0" ) return {
                 name: `${ i.fullName }`,
                 position: i.occupation,
                 dni: i.dni
             }
         });
-        setInspectorUsers( { users: [...(inspectedUsers.filter( Boolean ))] } );
-        setinspectedUsers( { users: [...(inspectordUsers.filter( Boolean ))] } );
+        setObservatedUsers( { users: [...(observatedUsers.filter( Boolean ))] } );
+        setObservatorUsers( { users: [...(ObservatordUsers.filter( Boolean ))] } );
     };
 
     useEffect(() => {
-        startValues( inspectionUsers );
-    }, [ inspectionUsers ]);
+        startValues( observationUsers );
+    }, [ observationUsers ]);
 
     useEffect(() => {
         form1.setFieldsValue({
@@ -58,9 +58,9 @@ export const ResponsablesDetails = ({ responsableName, responsablePosition, resp
     }, [  ]);
 
     useEffect(() => {
-        form2.setFieldsValue( inspectedUsers );
-        form3.setFieldsValue( inspectorUsers );
-    }, [ inspectedUsers, inspectorUsers ]);
+        form2.setFieldsValue( observatedUsers );
+        form3.setFieldsValue( ObservatorUsers );
+    }, [ observatedUsers, ObservatorUsers ]);
     
 
     return (
@@ -96,7 +96,7 @@ export const ResponsablesDetails = ({ responsableName, responsablePosition, resp
                 </div>
             </Form>
             <div className = { styles.subtitle }>  
-                <span>Responsables del área inspeccionada</span>
+                <span>Responsables del área observada</span>
             </div>
             <Form 
                 form = { form2 }
@@ -133,7 +133,7 @@ export const ResponsablesDetails = ({ responsableName, responsablePosition, resp
                                         labelCol = {{ span: 8 }}
                                         style = {{ width: "400px" }}
                                     >
-                                        <Input placeholder = "Nombres" />
+                                        <Input placeholder = "DNI" />
                                     </Form.Item>
                                     <Form.Item
                                         { ...restField }
@@ -153,7 +153,7 @@ export const ResponsablesDetails = ({ responsableName, responsablePosition, resp
                 </div>
             </Form>
             <div className = { styles.subtitle }>  
-                <span>Equipo responsable de la inspección</span>
+                <span>Equipo responsable de la observación</span>
             </div>
             <Form 
                 form = { form3 }
