@@ -31,7 +31,7 @@ export const InspectionCard = () => {
                             loading && <Skeleton active />
                         }
                         {
-                            inspections.length == 0 && (
+                            ( inspections.length == 0 && !loading ) && (
                                 <RenderStatusIO 
                                     msg = 'No hay inspecciones con riesgos ALTOS'
                                 />
