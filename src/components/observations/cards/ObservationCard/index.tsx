@@ -31,7 +31,7 @@ export const ObservationCard = () => {
                             loading && <Skeleton active />
                         }
                         {
-                            observations.length == 0 && (
+                            ( observations.length == 0 && !loading ) && (
                                 <RenderStatusIO 
                                     msg = 'No hay observaciones con riesgos ALTOS'
                                 />
