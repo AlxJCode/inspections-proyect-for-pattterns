@@ -44,6 +44,8 @@ export const InspectionView = () => {
             <InspectionFilter 
                 setFilters  = { setFilters }
                 setPage     = { setPage } 
+                inspections = { inspections }
+                loading = { loading }
             />
 
             <InspectionTable

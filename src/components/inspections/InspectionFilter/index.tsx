@@ -1,14 +1,18 @@
-import { Button, DatePicker, Form, Select } from 'antd';
+import { Button, DatePicker, Form, Select, Space } from 'antd';
 import React, { useEffect } from 'react';
 import { useAxiosArea } from '../../../hooks/users/useAxiosArea';
 import { useAxiosUser } from '../../../hooks/users/useAxiosUser';
+import { ExportInspections } from '../ExportInspections';
+import { IInspection } from '../../../interfaces/inspections/inspection';
 
 interface Props {
     setFilters  : React.Dispatch<React.SetStateAction<{}>>;
     setPage     : React.Dispatch<React.SetStateAction<number>>;
+    inspections : IInspection[];
+    loading     : boolean;
 }
 
-export const InspectionFilter = ({ setFilters, setPage }: Props) => {
+export const InspectionFilter = ({ setFilters, setPage, inspections, loading }: Props) => {
 
     const [ form ] = Form.useForm();
     const { RangePicker } = DatePicker;
@@ -118,12 +122,15 @@ export const InspectionFilter = ({ setFilters, setPage }: Props) => {
                     </Form.Item>
                 </div>
                 <div style = {{ display: "flex", justifyContent: "flex-end" }}>
-                    <Button
-                        type = 'primary'
-                        htmlType = 'submit'
-                    >
-                        Filtrar
-                    </Button>
+                    <Space>
+                        <ExportInspections loading = { loading } inspections = { inspections }/>
+                        <Button
+                            type = 'primary'
+                            htmlType = 'submit'
+                        >
+                            Filtrar
+                        </Button>
+                    </Space>
                 </div>
             </Form>
         </div>

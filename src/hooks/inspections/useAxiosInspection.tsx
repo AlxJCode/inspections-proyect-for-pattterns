@@ -7,7 +7,7 @@ import { formatInspection } from "../../utils/transforms/inspections/inspection"
 export const useAxiosInspection = ( ) => {
 
 
-    const [ loading, setLoading ] = useState( true );
+    const [ loading, setLoading ] = useState( false );
     const [ inspections, setInspections ] = useState<IInspection[]>([]);
     const [ count, setCount ] = useState( 0 );
 
